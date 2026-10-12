@@ -6,10 +6,9 @@
 //               > use practical3
 //               > load("practical_03_mongodb.js")
 
-// >>> CHANGE THIS TO YOUR NAME <<<
 const STUDENT_NAME = "Shivam Singh";
 
-// Start clean so re-running does not create duplicate documents
+// Drop both collections so re-running does not create duplicates
 db.items.drop();
 db.products.drop();
 
@@ -25,7 +24,7 @@ printjson(db.items.find().toArray());
 
 // ---------------------------------------------------------------
 print("\n## Step 3: Insert Multiple Documents");
-print("Query: db.products.insertMany([...3 products...]);");
+print("Query: db.products.insertMany([{ name: \"phone\", price: 500, stock: 10 }, { name: \"tablet\", price: 300, stock: 5 }, { name: \"watch\", price: 150, stock: 0 }]);");
 printjson(db.products.insertMany([
   { name: "phone", price: 500, stock: 10 },
   { name: "tablet", price: 300, stock: 5 },
@@ -34,7 +33,7 @@ printjson(db.products.insertMany([
 
 // ---------------------------------------------------------------
 print("\n## Step 4: View Products in Formatted JSON");
-print("Query: db.products.find().pretty();");
+print("Query: db.products.find();");
 printjson(db.products.find().toArray());
 
 // ---------------------------------------------------------------
